@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">سمارٽ ميڊيسن ريمائنڊر</string>
+
+    <!-- Language Selection -->
+    <string name="select_language">ٻولي چونڊيو</string>
+    <string name="english">انگريزي</string>
+    <string name="urdu">اردو</string>
+    <string name="sindhi">سنڌي</string>
+
+    <!-- Medicine Reminder UI Texts -->
+    <string name="take_panadol">پنڊول وٺو</string>
+    <string name="checkbox_text">مون دوا وٺي ڇڏي آهي</string>
+    <string name="confirm">تصدیق</string>
+    <string name="update_reminder">ياد ڏياريندڙ کي تازه ڪريو</string>
+
+
+    <!-- Image & Input Fields -->
+    <string name="medicine_image_desc">اپلوڊ ٿيل دوا جي تصوير</string>
+    <string name="image_preview_desc">دوا جي تصوير جو جائزو</string>
+    <string name="medicine_name">دوائن جو نالو</string>
+    <string name="upload_image">تصوير اپلوڊ ڪريو</string>
+    <string name="upload_medicine_image">دوائن جي تصوير اپلوڊ ڪريو</string>
+    <string name="upload_front_image">سامهون تصوير اپلوڊ ڪريو</string>
+    <string name="upload_back_image">پٺيان تصوير اپلوڊ ڪريو</string>
+    <string name="upload_syrup_image">شيرپ جي تصوير اپلوڊ ڪريو</string>
+    <string name="image_preview">تصوير جو جائزو</string>
+    <string name="close">بند ڪريو</string>
+
+    <!-- Date & Time Scheduling -->
+    <string name="no_time_selected">ڪوبه وقت چونڊيو ناهي</string>
+    <string name="time_not_selected">وقت: چونڊيو ناهي</string>
+    <string name="pick_time">وقت چونڊيو</string>
+    <string name="set_schedule">شيڊول مقرر ڪريو</string>
+    <string name="close_schedule">✕ شيڊول بند ڪريو</string>
+    <string name="select_start_date">شروع ٿيڻ جي تاريخ چونڊيو</string>
+    <string name="select_end_date">ختم ٿيڻ جي تاريخ چونڊيو</string>
+    <string name="enter_date_e_g_2025_07_28">تاريخ داخل ڪريو (جهڙوڪ 2025–07-28)</string>
+    <string name="enter_time_e_g_14_30">وقت داخل ڪريو (جهڙوڪ 14:30)</string>
+
+    <string name="enter_time_e_g_09_30_am">وقت داخل ڪريو (جهڙوڪ 09:30 صبح)</string>
+
+
+    <!-- Reminder Details -->
+    <string name="choose_type">قسم چونڊيو</string>
+    <string name="tablet">ٽيبليٽ</string>
+    <string name="syrup">شيرپ</string>
+    <string name="add_dose_time">خوراک جو وقت شامل ڪريو</string>
+    <string name="save_reminder">ياد ڏياريندڙ محفوظ ڪريو</string>
+
+    <string name="type_label">قسم: %1$s</string>
+    <string name="duration_label">مدت: %1$s → %2$s</string>
+    <string name="front_side_label">سامهون:</string>
+    <string name="back_side_label">پٺيان:</string>
+    <string name="syrup_bottle_label">شيرپ بوتل:</string>
+    <string name="doses_label">خوراکون:</string>
+    <string name="tablet_dose_format">💊 %1$d ٽيبليٽ</string>
+    <string name="syrup_dose_format">🥄 %1$d چمچا</string>
+    <string name="default_dose_format">🔔 %1$d يونٽ</string>
+    <string name="dose_item_format">⏰ %1$s | %2$s</string>
+    <string name="delete_dose">خوراک ختم ڪريو</string>
+    <string name="no_doses_scheduled">ڪابه خوراک مقرر ناهي</string>
+</resources>

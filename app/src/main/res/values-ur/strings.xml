@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">اسمارٹ میڈیسن ریمائنڈر</string>
+
+    <!-- Language Selection -->
+    <string name="select_language">زبان منتخب کریں</string>
+    <string name="english">انگریزی</string>
+    <string name="urdu">اردو</string>
+    <string name="sindhi">سندھی</string>
+
+    <!-- Medicine Reminder UI Texts -->
+    <string name="take_panadol">پیناڈول لیں</string>
+    <string name="checkbox_text">میں نے دوا لے لی ہے</string>
+    <string name="confirm">تصدیق کریں</string>
+
+    <!-- Image & Input Fields -->
+    <string name="medicine_image_desc">اپ لوڈ شدہ دوا کی تصویر</string>
+    <string name="image_preview_desc">دوائی کی تصویر کا جائزہ</string>
+    <string name="medicine_name">دوائی کا نام</string>
+    <string name="upload_image">تصویر اپ لوڈ کریں</string>
+    <string name="upload_medicine_image">دوائی کی تصویر اپ لوڈ کریں</string>
+    <string name="upload_front_image">سامنے کی تصویر اپ لوڈ کریں</string>
+    <string name="upload_back_image">پیچھے کی تصویر اپ لوڈ کریں</string>
+    <string name="upload_syrup_image">شربت کی تصویر اپ لوڈ کریں</string>
+    <string name="image_preview">تصویر کا جائزہ</string>
+    <string name="close">بند کریں</string>
+
+    <!-- Date & Time Scheduling -->
+    <string name="no_time_selected">کوئی وقت منتخب نہیں</string>
+    <string name="time_not_selected">وقت: منتخب نہیں</string>
+    <string name="pick_time">وقت منتخب کریں</string>
+    <string name="set_schedule">شیڈول مقرر کریں</string>
+    <string name="close_schedule">✕ شیڈول بند کریں</string>
+    <string name="select_start_date">آغاز کی تاریخ منتخب کریں</string>
+    <string name="select_end_date">اختتام کی تاریخ منتخب کریں</string>
+    <string name="enter_date_e_g_2025_07_28">تاریخ درج کریں (مثلاً 2025–07-28)</string>
+    <string name="enter_time_e_g_14_30">وقت درج کریں (مثلاً 14:30)</string>
+
+    <string name="enter_time_e_g_09_30_am">وقت درج کریں (مثلاً 09:30 صبح)</string>
+
+
+    <!-- Reminder Details -->
+    <string name="choose_type">قسم منتخب کریں</string>
+    <string name="tablet">گولی</string>
+    <string name="syrup">شربت</string>
+    <string name="add_dose_time">خوراک کا وقت شامل کریں</string>
+    <string name="save_reminder">یاد دہانی محفوظ کریں</string>
+    <string name="update_reminder">یاد دہانی کو اپڈیٹ کریں</string>
+
+
+    <string name="type_label">قسم: %1$s</string>
+    <string name="duration_label">دورانیہ: %1$s → %2$s</string>
+    <string name="front_side_label">سامنے:</string>
+    <string name="back_side_label">پیچھے:</string>
+    <string name="syrup_bottle_label">شربت کی بوتل:</string>
+    <string name="doses_label">خوراکیں:</string>
+    <string name="tablet_dose_format">💊 %1$d گولیاں</string>
+    <string name="syrup_dose_format">🥄 %1$d چمچ</string>
+    <string name="default_dose_format">🔔 %1$d یونٹس</string>
+    <string name="dose_item_format">⏰ %1$s | %2$s</string>
+    <string name="delete_dose">خوراک حذف کریں</string>
+    <string name="no_doses_scheduled">کوئی خوراک مقرر نہیں</string>
+</resources>

@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Smart Medicine Reminder</string>
+
+    <!-- Language Selection -->
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="urdu">Urdu</string>
+    <string name="sindhi">Sindhi</string>
+
+    <!-- Medicine Reminder UI Texts -->
+    <string name="take_panadol">Take your Panadol</string>
+    <string name="checkbox_text">I have taken my medicine</string>
+    <string name="confirm">Confirm</string>
+
+    <!-- Image & Input Fields -->
+    <string name="medicine_image_desc">Uploaded medicine image</string>
+    <string name="image_preview_desc">Medicine Image Preview</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="upload_medicine_image">Upload Medicine Image</string>
+    <string name="upload_front_image">Upload Front Image</string>
+    <string name="upload_back_image">Upload Back Image</string>
+    <string name="upload_syrup_image">Upload Syrup Image</string>
+    <string name="image_preview">Image Preview</string>
+    <string name="close">Close</string>
+    <string name="update_reminder">Update Reminder</string>
+
+
+    <!-- Date & Time Scheduling -->
+    <string name="no_time_selected">No time selected</string>
+    <string name="time_not_selected">Time: Not Selected</string>
+    <string name="pick_time">Pick Time</string>
+    <string name="set_schedule">Set Schedule</string>
+    <string name="close_schedule">✕ Close Schedule</string>
+    <string name="select_start_date">Select Start Date</string>
+    <string name="select_end_date">Select End Date</string>
+    <string name="enter_date_e_g_2025_07_28">Enter date (e.g., 2025–07-28)</string>
+    <string name="enter_time_e_g_14_30">Enter time (e.g., 14:30)</string>
+
+    <string name="enter_time_e_g_09_30_am">Enter Time (e.g. 09:30 AM)</string>
+
+
+    <!-- Reminder Details -->
+    <string name="choose_type">Choose Type</string>
+    <string name="tablet">Tablet</string>
+    <string name="syrup">Syrup</string>
+    <string name="add_dose_time">Add Dose Time</string>
+    <string name="save_reminder">Save Reminder</string>
+
+    <string name="type_label">Type: %1$s</string>
+    <string name="duration_label">Duration: %1$s → %2$s</string>
+    <string name="front_side_label">Front Side:</string>
+    <string name="back_side_label">Back Side:</string>
+    <string name="syrup_bottle_label">Syrup Bottle:</string>
+    <string name="doses_label">Doses:</string>
+    <string name="tablet_dose_format">💊 %1$d tablet(s)</string>
+    <string name="syrup_dose_format">🥄 %1$d spoon(s)</string>
+    <string name="default_dose_format">🔔 %1$d unit(s)</string>
+    <string name="dose_item_format">⏰ %1$s | %2$s</string>
+    <string name="delete_dose">Delete Dose</string>
+    <string name="no_doses_scheduled">No doses scheduled</string>
+</resources>
