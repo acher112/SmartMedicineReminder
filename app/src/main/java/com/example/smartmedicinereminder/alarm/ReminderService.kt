@@ -3,6 +3,7 @@ package com.example.smartmedicinereminder.alarm
 import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
@@ -15,17 +16,27 @@ class ReminderService : Service() {
         const val NOTIF_ID = 2001
     }
 
+    private var mediaPlayer: MediaPlayer? = null
+
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val medicineName = intent?.getStringExtra("MEDICINE_NAME") ?: "Medicine Reminder"
+        val medicineName = intent?.getStringExtra("MEDICINE_NAME") ?: "Medicine"
         val doseQty = intent?.getIntExtra("DOSE_QTY", 1) ?: 1
 
-        // ✅ PendingIntent to open app when notification tapped
-        val notifIntent = Intent(this, Class.forName("com.example.smartmedicinereminder.MainActivity"))
+        // ✅ Launch full-screen AlarmActivity
+        val alarmIntent = Intent(this, AlarmActivity::class.java).apply {
+            putExtra("MEDICINE_NAME", medicineName)
+            putExtra("DOSE_QTY", doseQty)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        startActivity(alarmIntent)
+
+        // ✅ PendingIntent for notification (opens app if tapped)
+        val notifIntent = Intent(this, AlarmActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
             0,
@@ -35,17 +46,31 @@ class ReminderService : Service() {
 
         // ✅ Foreground notification (silent)
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle("Medicine Reminder")
             .setContentText("Take $doseQty tablet(s) of $medicineName")
-            .setSmallIcon(R.drawable.ic_notification)
-            .setPriority(NotificationCompat.PRIORITY_LOW) // no sound
+            .setPriority(NotificationCompat.PRIORITY_LOW)
             .setCategory(NotificationCompat.CATEGORY_REMINDER)
-            .setContentIntent(pendingIntent) // open app on tap
-            .setOngoing(true) // makes it persistent until service stops
+            .setContentIntent(pendingIntent)
+            .setOngoing(true)
             .build()
 
         startForeground(NOTIF_ID, notification)
+
+        // ✅ Start ringtone (looping)
+        mediaPlayer = MediaPlayer.create(this, R.raw.reminder_sound)?.apply {
+            isLooping = true
+            start()
+        }
+
         return START_NOT_STICKY
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -58,8 +83,8 @@ class ReminderService : Service() {
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
                 description = "Shows medicine reminder info (no sound)"
-                setSound(null, null) // ✅ explicitly disables sound
-                enableVibration(false) // ✅ disable vibration
+                setSound(null, null)
+                enableVibration(false)
             }
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)

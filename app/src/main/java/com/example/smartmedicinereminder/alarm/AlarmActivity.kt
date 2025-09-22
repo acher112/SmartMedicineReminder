@@ -1,5 +1,6 @@
 package com.example.smartmedicinereminder.alarm
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
@@ -19,7 +20,7 @@ class AlarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ✅ Show activity on lock screen + wake device
+        // ✅ Wake screen + show on lock screen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             setShowWhenLocked(true)
             setTurnScreenOn(true)
@@ -35,9 +36,9 @@ class AlarmActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alarm)
 
         // ✅ Extract reminder data
-        val medicineName = intent.getStringExtra("medicineName") ?: "Medicine"
-        val dosage = intent.getStringExtra("dosage") ?: "1"
-        val imagePath = intent.getStringExtra("imagePath").orEmpty()
+        val reminderName = intent.getStringExtra("REMINDER_NAME") ?: getString(R.string.app_name)
+        val doseQty = intent.getIntExtra("DOSE_QTY", 1)
+        val imagePath = intent.getStringExtra("FRONT_IMAGE_URI").orEmpty()
 
         // ✅ Bind views
         val tvTitle: TextView = findViewById(R.id.tvTitle)
@@ -45,11 +46,11 @@ class AlarmActivity : AppCompatActivity() {
         val ivMedicine: ImageView = findViewById(R.id.ivMedicine)
         val btnConfirm: Button = findViewById(R.id.btnConfirm)
 
-        // ✅ Set UI text (using existing hardcoded / current strings)
-        tvTitle.text = "Time to take: $medicineName"
-        tvDose.text = "Dose: $dosage"
+        // ✅ Set medicine info
+        tvTitle.text = "Time for $reminderName"
+        tvDose.text = "Take $doseQty dose(s)"
 
-        // ✅ Show medicine image or fallback icon
+        // ✅ Show medicine image if available
         val file = File(imagePath)
         if (file.exists()) {
             ivMedicine.setImageURI(Uri.fromFile(file))
@@ -57,16 +58,20 @@ class AlarmActivity : AppCompatActivity() {
             ivMedicine.setImageResource(R.drawable.ic_notification) // fallback icon
         }
 
-        // ✅ Start looping alarm sound
+        // ✅ Play alarm sound in loop
         mediaPlayer = MediaPlayer.create(this, R.raw.reminder_sound)?.apply {
             isLooping = true
             start()
         }
 
-        // ✅ Confirm button stops alarm + closes activity
+        // ✅ Confirm button
         btnConfirm.setOnClickListener {
             stopRingtone()
-            // TODO: Add guardian message or logging here
+
+            // 🔴 Stop foreground service → removes persistent notification
+            val stopIntent = Intent(this, ReminderService::class.java)
+            stopService(stopIntent)
+
             finish()
         }
     }
@@ -77,8 +82,7 @@ class AlarmActivity : AppCompatActivity() {
                 if (player.isPlaying) {
                     player.stop()
                 }
-            } catch (e: IllegalStateException) {
-                // Ignore if player already released
+            } catch (_: IllegalStateException) {
             }
             player.release()
         }

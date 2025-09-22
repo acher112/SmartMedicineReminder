@@ -27,7 +27,6 @@ object AlarmScheduler {
         val intent = Intent(context, AlarmReceiver::class.java).apply {
             putExtra("REMINDER_ID", reminderId)
             putExtra("REMINDER_NAME", reminderName)
-            putExtra("DOSE_INDEX", doseIndex)
             putExtra("DOSE_QTY", qty)
             putExtra("FRONT_IMAGE_URI", frontImageUri)
             putExtra("BACK_IMAGE_URI", backImageUri)
@@ -60,15 +59,9 @@ object AlarmScheduler {
                     pending
                 )
             }
-
-            Log.d(
-                TAG,
-                "✅ Scheduled alarm req=$reqCode → $reminderName (qty=$qty) at $triggerAtMillis"
-            )
-        } catch (se: SecurityException) {
-            Log.e(TAG, "❌ SecurityException scheduling alarm: ${se.message}", se)
+            Log.d(TAG, "✅ Scheduled alarm req=$reqCode → $reminderName (qty=$qty) at $triggerAtMillis")
         } catch (e: Exception) {
-            Log.e(TAG, "❌ Exception scheduling alarm: ${e.message}", e)
+            Log.e(TAG, "❌ Error scheduling alarm: ${e.message}", e)
         }
     }
 
